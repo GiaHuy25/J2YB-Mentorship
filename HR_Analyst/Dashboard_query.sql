@@ -85,8 +85,7 @@ CREATE TABLE [Headcount_FACT] (
   [AgeBandingID] int,
   [TenureBandingID] int,
   [ContractTypeID] int,
-  [SeniorityLevelID] int,
-  [Headcount] int
+  [SeniorityLevelID] int
 )
 GO
 
