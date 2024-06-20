@@ -56,7 +56,7 @@ VALUES
   ('13','C', '2021-01-01', '3'),
   ('14','C', '2021-01-01', '3'),
   ('15','C', '2021-01-07', '3');
-  ----1----
+   ----1----
 	  SELECT 
 	  customer_id, 
 	  SUM(price) AS total_sales
@@ -67,6 +67,100 @@ VALUES
   ----2----
 	select customer_id, count(distinct order_date) as visit 
 	from sales
-	group by customer_id
+	group by customer_id;
   ----3----
-	
+	select customer_order.customer_id, 
+		   customer_order.product_name
+	from(
+		select 
+		sales.customer_id,
+		sales.order_date,
+		menu.product_name,
+		ROW_NUMBER() over(partition by sales.customer_id order by sales.order_date) as number_order
+		from sales inner join menu 
+		on sales.product_id = menu.product_id
+		) as customer_order
+	where number_order = 1
+	group by customer_order.customer_id, customer_order.product_name;
+   ----4----
+	select top 1
+		menu.product_name,
+		count(sales.product_id) as quantity
+	from menu 
+		inner join sales on menu.product_id = sales.product_id	
+	group by menu.product_name
+	order by quantity DESC
+	----5----
+	select customer_id,product_name, count_order
+	from(
+		select sales.customer_id,
+			   menu.product_name,
+			   count(sales.product_id) as count_order,
+			   dense_rank() over(partition by sales.customer_id
+								 order by count(sales.customer_id) desc) as customer_order
+		from sales inner join menu 
+		on sales.product_id = menu.product_id
+		group by sales.product_id,menu.product_name
+	) as popular_order
+	where customer_order=1
+	----6----
+	select customer_id,
+		   product_name,
+		   join_date,
+		   order_date
+	from(
+		select members.customer_id,
+			   menu.product_name,
+			   members.join_date,
+			   sales.order_date,
+			   row_number() over (partition by sales.customer_id
+								  order by sales.order_date) as number
+		from sales 
+		inner join members on members.customer_id = sales.customer_id
+		inner join menu on menu.product_id = sales.product_id
+		where sales.order_date >= members.join_date
+	) as first_purchased
+	where number=1
+	----7----
+	select customer_id,
+		   product_name,
+		   join_date,
+		   order_date
+	from(
+		select members.customer_id,
+			   menu.product_name,
+			   members.join_date,
+			   sales.order_date,
+			   row_number() over (partition by sales.customer_id
+								  order by sales.order_date desc ) as number
+		from sales 
+		inner join members on members.customer_id = sales.customer_id
+		inner join menu on menu.product_id = sales.product_id
+		where sales.order_date < members.join_date
+	) as first_purchased
+	where number=1
+	----8----
+	select customer_id,
+		   cost
+	from(
+			select sales.customer_id,
+				   --menu.price,
+				   --menu.product_name,
+				   SUM(menu.price) as cost
+			from sales 
+			inner join members on members.customer_id = sales.customer_id
+			inner join menu on menu.product_id = sales.product_id
+			where sales.order_date < members.join_date
+			group by sales.customer_id,members.customer_id
+			--,sales.product_id,menu.price,menu.product_name
+	) as cost_before_became_member
+	----9----
+	select sales.customer_id,
+			sum(case
+			when menu.product_id = 1 then menu.price* 20
+			else menu.price*10 
+			end) as point
+	from menu
+			inner join sales on sales.product_id = menu.product_id
+	group by sales.customer_id
+	----10----
