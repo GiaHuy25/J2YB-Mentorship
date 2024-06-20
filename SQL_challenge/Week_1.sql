@@ -164,3 +164,19 @@ VALUES
 			inner join sales on sales.product_id = menu.product_id
 	group by sales.customer_id
 	----10----
+	----bonus----
+	select	sales.customer_id,
+			sales.product_id,
+			menu.product_name,
+			case 
+			when menu.product_id = 1 then menu.price*20
+			else menu.price*10
+			end as point,
+			case
+			when sales.order_date >= members.join_date then 'Y'
+			else 'N'
+			end as "member"
+	from sales
+		 inner join members on sales.customer_id = members.customer_id
+		 inner join menu on sales.product_id = menu.product_id
+		 order by customer_id
