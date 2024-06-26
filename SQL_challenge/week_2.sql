@@ -145,3 +145,67 @@ INSERT INTO toppings (topping_id, topping_name) VALUES
   FROM customer_order
   GROUP BY DATEPART(HOUR, [order_date]);
   ----10----
+  ------Part B ------
+  ----1----
+  SELECT 
+  DATEPART(WEEK, registration) AS registration_week,
+  COUNT(runner_id) AS runner_signup
+  FROM runners
+  GROUP BY DATEPART(WEEK, registration);
+  ----2----
+  WITH time_taken_cte AS
+(
+  SELECT 
+    c.order_id, 
+    c.order_date, 
+    r.pickup_time, 
+    DATEDIFF(MINUTE, c.order_date, r.pickup_time) AS pickup_minutes
+  FROM customer_order AS c
+  JOIN runner_order AS r
+    ON c.order_id = r.order_id
+  WHERE r.distance != '0'
+  GROUP BY c.order_id, c.order_date, r.pickup_time
+)
+
+SELECT 
+  AVG(pickup_minutes) AS avg_pickup_minutes
+FROM time_taken_cte
+WHERE pickup_minutes > 1;
+----3----
+WITH prep_time_cte AS
+(
+  SELECT 
+    c.order_id, 
+    COUNT(c.order_id) AS pizza_order, 
+    c.order_date, 
+    r.pickup_time, 
+    DATEDIFF(MINUTE, c.order_date, r.pickup_time) AS prep_time_minutes
+  FROM customer_order AS c
+  JOIN runner_order AS r
+    ON c.order_id = r.order_id
+  WHERE r.distance != '0'
+  GROUP BY c.order_id, c.order_date, r.pickup_time
+)
+
+SELECT 
+  pizza_order, 
+  AVG(prep_time_minutes) AS avg_prep_time_minutes
+FROM prep_time_cte
+WHERE prep_time_minutes > 1
+GROUP BY pizza_order;
+----4----
+----5----
+SELECT 
+  order_id, duration
+FROM runner_order
+WHERE duration <> ' ';
+----6----
+----7----
+SELECT 
+  runner_id, 
+  ROUND(100 * SUM(
+    CASE WHEN distance = '0' THEN 0
+    ELSE 1 END) / COUNT(*), 0) AS success_perc
+FROM runner_order
+GROUP BY runner_id;
+------Part C ------
