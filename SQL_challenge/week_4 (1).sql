@@ -1,17 +1,15 @@
--- STEP 1: Create Database --
+
 USE master
 CREATE DATABASE Data_Bank
 GO
 
 USE Data_Bank
 GO
--- STEP 2: Create Table regions--
 CREATE TABLE regions (
   region_id INTEGER PRIMARY KEY,
   region_name VARCHAR(9)
 );
 GO
--- Insert new records in table--
 INSERT INTO regions
   (region_id, region_name)
 VALUES
@@ -9488,6 +9486,26 @@ FROM customer_nodes
 GROUP BY region_id
 ORDER BY region_id;
 ----4----
+WITH node_days AS (
+  SELECT 
+    customer_id, 
+    node_id,
+    DATEDIFF(day, start_date, end_date) AS days_in_node
+  FROM customer_nodes
+  WHERE end_date != '9999-12-31'
+  GROUP BY customer_id, node_id, start_date, end_date
+) 
+, total_node_days AS (
+  SELECT 
+    customer_id,
+    node_id,
+    SUM(days_in_node) AS total_days_in_node
+  FROM node_days
+  GROUP BY customer_id, node_id
+)
+
+SELECT ROUND(AVG(total_days_in_node),0) AS avg_node_reallocation_days
+FROM total_node_days;
 ----B----
 ----1----
 SELECT
@@ -9530,3 +9548,4 @@ WHERE deposit_count > 1
   AND (purchase_count >= 1 OR withdrawal_count >= 1)
 GROUP BY mth
 ORDER BY mth;
+----4----
