@@ -17186,3 +17186,158 @@ VALUES
   ('26/3/18', 'USA', 'Retail', 'F2', 'New', '25665', '1064172'),
   ('26/3/18', 'EUROPE', 'Retail', 'C4', 'New', '883', '33523'),
   ('26/3/18', 'AFRICA', 'Retail', 'C3', 'Existing', '218516', '12083475');
+  go
+  -- Create a temporary table in SQL Server
+CREATE TABLE #clean_weekly_sales (
+    week_date DATE,
+    week_number INT,
+    month_number INT,
+    calendar_year INT,
+    region NVARCHAR(50),
+    platform NVARCHAR(50),
+    segment NVARCHAR(50),
+    age_band NVARCHAR(50),
+    demographic NVARCHAR(50),
+    transactions INT,
+    avg_transaction DECIMAL(10, 2),
+    sales DECIMAL(18, 2)
+);
+go
+INSERT INTO #clean_weekly_sales (week_date, week_number, month_number, calendar_year, region, platform, segment, age_band, demographic, transactions, avg_transaction, sales)
+SELECT
+    CONVERT(DATE, week_date, 3) AS week_date,
+    DATEPART(WEEK, CONVERT(DATE, week_date, 3)) AS week_number,
+    DATEPART(MONTH, CONVERT(DATE, week_date, 3)) AS month_number,
+    DATEPART(YEAR, CONVERT(DATE, week_date, 3)) AS calendar_year,
+    region,
+    platform,
+    segment,
+    CASE
+        WHEN RIGHT(segment, 1) = '1' THEN 'Young Adults'
+        WHEN RIGHT(segment, 1) = '2' THEN 'Middle Aged'
+        WHEN RIGHT(segment, 1) IN ('3', '4') THEN 'Retirees'
+        ELSE 'unknown'
+    END AS age_band,
+    CASE
+        WHEN LEFT(segment, 1) = 'C' THEN 'Couples'
+        WHEN LEFT(segment, 1) = 'F' THEN 'Families'
+        ELSE 'unknown'
+    END AS demographic,
+    transactions,
+    ROUND(sales / transactions, 2) AS avg_transaction,
+    sales
+FROM weekly_sales;
+--DROP TABLE #clean_weekly_sales;
+--select * from weekly_sales
+--select * from  #clean_weekly_sales
+----B----
+----1----
+SELECT DISTINCT FORMAT(week_date, 'dddd') AS week_day
+FROM #clean_weekly_sales;
+----2----
+WITH week_number_cte AS (
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS week_number
+  FROM master.dbo.spt_values
+)
+  
+SELECT DISTINCT week_no.week_number
+FROM week_number_cte AS week_no
+LEFT JOIN #clean_weekly_sales AS sales
+  ON week_no.week_number = sales.week_number
+WHERE sales.week_number IS NULL;
+----3----
+SELECT 
+  calendar_year, 
+  SUM(transactions) AS total_transactions
+FROM #clean_weekly_sales
+GROUP BY calendar_year
+ORDER BY calendar_year;
+----4----
+SELECT 
+  month_number, 
+  region, 
+  SUM(sales) AS total_sales
+FROM #clean_weekly_sales
+GROUP BY month_number, region
+ORDER BY month_number, region;
+----5----
+SELECT 
+  platform, 
+  SUM(transactions) AS total_transactions
+FROM #clean_weekly_sales
+GROUP BY platform;
+----6----
+WITH monthly_transactions AS (
+  SELECT 
+    calendar_year, 
+    month_number, 
+    platform, 
+    SUM(sales) AS monthly_sales
+  FROM #clean_weekly_sales
+  GROUP BY calendar_year, month_number, platform
+)
+
+SELECT 
+  calendar_year, 
+  month_number, 
+  ROUND(100 * MAX 
+    (CASE 
+      WHEN platform = 'Retail' THEN monthly_sales ELSE NULL END) 
+    / SUM(monthly_sales),2) AS retail_percentage,
+  ROUND(100 * MAX 
+    (CASE 
+      WHEN platform = 'Shopify' THEN monthly_sales ELSE NULL END)
+    / SUM(monthly_sales),2) AS shopify_percentage
+FROM monthly_transactions
+GROUP BY calendar_year, month_number
+ORDER BY calendar_year, month_number;
+----7----
+WITH demographic_sales AS (
+  SELECT 
+    calendar_year, 
+    demographic, 
+    SUM(sales) AS yearly_sales
+  FROM #clean_weekly_sales
+  GROUP BY calendar_year, demographic
+)
+
+SELECT 
+  calendar_year, 
+  ROUND(100 * MAX 
+    (CASE 
+      WHEN demographic = 'Couples' THEN yearly_sales ELSE NULL END)
+    / SUM(yearly_sales),2) AS couples_percentage,
+  ROUND(100 * MAX 
+    (CASE 
+      WHEN demographic = 'Families' THEN yearly_sales ELSE NULL END)
+    / SUM(yearly_sales),2) AS families_percentage,
+  ROUND(100 * MAX 
+    (CASE 
+      WHEN demographic = 'unknown' THEN yearly_sales ELSE NULL END)
+    / SUM(yearly_sales),2) AS unknown_percentage
+FROM demographic_sales
+GROUP BY calendar_year;
+----8----
+SELECT 
+  age_band, 
+  demographic, 
+  SUM(sales) AS retail_sales,
+  ROUND(100 * 
+    SUM(CAST(sales AS DECIMAL)) 
+    / SUM(SUM(sales)) OVER (),
+  1) AS contribution_percentage
+FROM #clean_weekly_sales
+WHERE platform = 'Retail'
+GROUP BY age_band, demographic
+ORDER BY retail_sales DESC;
+----9----
+SELECT 
+  calendar_year, 
+  platform, 
+  ROUND(AVG(avg_transaction),0) AS avg_transaction_row, 
+  SUM(sales) / sum(transactions) AS avg_transaction_group
+FROM #clean_weekly_sales
+GROUP BY calendar_year, platform
+ORDER BY calendar_year, platform;
+----C----
+----1----
