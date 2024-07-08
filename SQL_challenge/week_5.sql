@@ -17282,12 +17282,10 @@ SELECT
   month_number, 
   ROUND(100 * MAX 
     (CASE 
-      WHEN platform = 'Retail' THEN monthly_sales ELSE NULL END) 
-    / SUM(monthly_sales),2) AS retail_percentage,
+      WHEN platform = 'Retail' THEN monthly_sales ELSE NULL END) / SUM(monthly_sales),2) AS retail_percentage,
   ROUND(100 * MAX 
     (CASE 
-      WHEN platform = 'Shopify' THEN monthly_sales ELSE NULL END)
-    / SUM(monthly_sales),2) AS shopify_percentage
+      WHEN platform = 'Shopify' THEN monthly_sales ELSE NULL END)/ SUM(monthly_sales),2) AS shopify_percentage
 FROM monthly_transactions
 GROUP BY calendar_year, month_number
 ORDER BY calendar_year, month_number;
@@ -17305,16 +17303,13 @@ SELECT
   calendar_year, 
   ROUND(100 * MAX 
     (CASE 
-      WHEN demographic = 'Couples' THEN yearly_sales ELSE NULL END)
-    / SUM(yearly_sales),2) AS couples_percentage,
+      WHEN demographic = 'Couples' THEN yearly_sales ELSE NULL END) / SUM(yearly_sales),2) AS couples_percentage,
   ROUND(100 * MAX 
     (CASE 
-      WHEN demographic = 'Families' THEN yearly_sales ELSE NULL END)
-    / SUM(yearly_sales),2) AS families_percentage,
+      WHEN demographic = 'Families' THEN yearly_sales ELSE NULL END) / SUM(yearly_sales),2) AS families_percentage,
   ROUND(100 * MAX 
     (CASE 
-      WHEN demographic = 'unknown' THEN yearly_sales ELSE NULL END)
-    / SUM(yearly_sales),2) AS unknown_percentage
+      WHEN demographic = 'unknown' THEN yearly_sales ELSE NULL END) / SUM(yearly_sales),2) AS unknown_percentage
 FROM demographic_sales
 GROUP BY calendar_year;
 ----8----
@@ -17323,8 +17318,7 @@ SELECT
   demographic, 
   SUM(sales) AS retail_sales,
   ROUND(100 * 
-    SUM(CAST(sales AS DECIMAL)) 
-    / SUM(SUM(sales)) OVER (),
+    SUM(CAST(sales AS DECIMAL))  / SUM(SUM(sales)) OVER (),
   1) AS contribution_percentage
 FROM #clean_weekly_sales
 WHERE platform = 'Retail'
@@ -17341,3 +17335,111 @@ GROUP BY calendar_year, platform
 ORDER BY calendar_year, platform;
 ----C----
 ----1----
+SELECT DISTINCT week_number
+FROM #clean_weekly_sales
+WHERE week_date = '2020-06-15' 
+  AND calendar_year = '2020';
+----2----
+WITH packaging_sales AS (
+  SELECT 
+    week_date, 
+    week_number, 
+    SUM(sales) AS total_sales
+  FROM #clean_weekly_sales
+  WHERE (week_number BETWEEN 21 AND 28) 
+    AND (calendar_year = 2020)
+  GROUP BY week_date, week_number
+)
+, before_after_changes AS (
+  SELECT 
+    SUM(CASE 
+      WHEN week_number BETWEEN 21 AND 24 THEN total_sales END) AS before_packaging_sales,
+    SUM(CASE 
+      WHEN week_number BETWEEN 25 AND 28 THEN total_sales END) AS after_packaging_sales
+  FROM packaging_sales
+)
+
+SELECT 
+  after_packaging_sales - before_packaging_sales AS sales_variance, 
+  ROUND(100 * 
+    (after_packaging_sales - before_packaging_sales) / before_packaging_sales,4) AS variance_percentage
+FROM before_after_changes;
+----3----
+WITH packaging_sales AS (
+  SELECT 
+    week_date, 
+    week_number, 
+    SUM(sales) AS total_sales
+  FROM #clean_weekly_sales
+  WHERE (week_number BETWEEN 13 AND 37) 
+    AND (calendar_year = 2020)
+  GROUP BY week_date, week_number
+)
+, before_after_changes AS (
+  SELECT 
+    SUM(CASE 
+      WHEN week_number BETWEEN 13 AND 24 THEN total_sales END) AS before_packaging_sales,
+    SUM(CASE 
+      WHEN week_number BETWEEN 25 AND 37 THEN total_sales END) AS after_packaging_sales
+  FROM packaging_sales
+)
+
+SELECT 
+  after_packaging_sales - before_packaging_sales AS sales_variance, 
+  ROUND(100 * 
+    (after_packaging_sales - before_packaging_sales) / before_packaging_sales,4) AS variance_percentage
+FROM before_after_changes;
+----4----
+WITH changes AS (
+  SELECT 
+    calendar_year,
+    week_number, 
+    SUM(sales) AS total_sales
+  FROM #clean_weekly_sales
+  WHERE week_number BETWEEN 21 AND 28
+  GROUP BY calendar_year, week_number
+)
+, before_after_changes AS (
+  SELECT 
+    calendar_year,
+    SUM(CASE 
+      WHEN week_number BETWEEN 13 AND 24 THEN total_sales END) AS before_packaging_sales,
+    SUM(CASE 
+      WHEN week_number BETWEEN 25 AND 28 THEN total_sales END) AS after_packaging_sales
+  FROM changes
+  GROUP BY calendar_year
+)
+
+SELECT 
+  calendar_year, 
+  after_packaging_sales - before_packaging_sales AS sales_variance, 
+  ROUND(100 * 
+    (after_packaging_sales - before_packaging_sales) / before_packaging_sales,4) AS variance_percentage
+FROM before_after_changes;
+----5----
+WITH changes AS (
+  SELECT 
+    calendar_year, 
+    week_number, 
+    SUM(sales) AS total_sales
+  FROM #clean_weekly_sales
+  WHERE week_number BETWEEN 13 AND 37
+  GROUP BY calendar_year, week_number
+)
+, before_after_changes AS (
+  SELECT 
+    calendar_year,
+    SUM(CASE 
+      WHEN week_number BETWEEN 13 AND 24 THEN total_sales END) AS before_packaging_sales,
+    SUM(CASE 
+      WHEN week_number BETWEEN 25 AND 37 THEN total_sales END) AS after_packaging_sales
+  FROM changes
+  GROUP BY calendar_year
+)
+
+SELECT 
+  calendar_year, 
+  after_packaging_sales - before_packaging_sales AS sales_variance, 
+  ROUND(100 * 
+    (after_packaging_sales - before_packaging_sales) / before_packaging_sales,4) AS variance_percentage
+FROM before_after_changes;
