@@ -203,9 +203,14 @@ WHERE duration <> ' ';
 ----7----
 SELECT 
   runner_id, 
-  ROUND(100 * SUM(
-    CASE WHEN distance = '0' THEN 0
+  ROUND(100 * sum(
+    CASE WHEN distance = '0' and cancellation = 'yes' THEN 0
     ELSE 1 END) / COUNT(*), 0) AS success_perc
 FROM runner_order
 GROUP BY runner_id;
 ------Part C ------
+select pizza.pizza_name,
+	   toppings.topping_name
+from customer_order
+join pizza on customer_order.pizza_id = pizza.pizza_id
+join toppings on customer_order.topping_id = toppings.topping_id
