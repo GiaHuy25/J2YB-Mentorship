@@ -34870,3 +34870,15 @@ JOIN page_hierarchy ph
 WHERE ph.product_category IS NOT NULL
 GROUP BY ph.product_category
 ORDER BY page_views DESC;
+----9----
+select top 3
+  ph.product_category,
+  Count(*) as purchase
+from events e 
+JOIN page_hierarchy as ph 
+on e.page_id = ph.page_id
+where e.event_type = 3
+group by ph.product_category
+order by purchase DESC
+----B----
+----1----
