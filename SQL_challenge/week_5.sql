@@ -17442,4 +17442,4 @@ SELECT
   after_packaging_sales - before_packaging_sales AS sales_variance, 
   ROUND(100 * 
     (after_packaging_sales - before_packaging_sales) / before_packaging_sales,4) AS variance_percentage
-FROM before_after_changes;
+FROM before_after_changes
