@@ -2760,15 +2760,11 @@ WITH next_plans AS (
       ORDER BY plan_id) as next_plan_id
   FROM subscriptions
 )
-
 SELECT 
   next_plan_id AS plan_id, 
   COUNT(customer_id) AS converted_customers,
   ROUND(100 * 
-    COUNT(customer_id)
-    / (SELECT COUNT(DISTINCT customer_id) 
-      FROM subscriptions)
-  ,1) AS conversion_percentage
+    COUNT(customer_id) / (SELECT COUNT(DISTINCT customer_id) FROM subscriptions),1) AS conversion_percentage
 FROM next_plans
 WHERE next_plan_id IS NOT NULL 
   AND plan_id = 0
@@ -2780,7 +2776,7 @@ SELECT
 	COUNT(DISTINCT customer_id) AS customers,
   ROUND(100.0 * 
 				COUNT(DISTINCT customer_id)
-				/ (SELECT COUNT(DISTINCT customer_id) FROM subscriptions)  ,1) AS "percentage"
+				/ (SELECT COUNT(DISTINCT customer_id) FROM subscriptions)  ,1)  AS "percentage"
 FROM (SELECT customer_id,
 			 plan_id,
   			 "start_date",
