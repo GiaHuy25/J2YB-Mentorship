@@ -1,4 +1,3 @@
--- STEP 1: Create Database --
 USE master
 CREATE DATABASE Balanced_Tree
 GO
@@ -15377,12 +15376,201 @@ GROUP BY member;
 
 -- C. Product Analysis -- 
 -- 1. What are the top 3 products by total revenue before discount?
+SELECT TOP 3
+  product.product_id,
+  product.product_name, 
+  SUM(s.qty) * SUM(s.price) AS total_revenue
+FROM sales s
+INNER JOIN product_details AS product
+	ON s.prod_id = product.product_id
+GROUP BY product.product_id, product.product_name
+ORDER BY total_revenue DESC;
 -- 2. What is the total quantity, revenue and discount for each segment?
+SELECT 
+  pd.segment_id,
+  pd.segment_name, 
+  SUM(s.qty) AS total_quantity,
+  SUM(s.qty * s.price) AS total_revenue,
+  SUM((s.qty * s.price) * s.discount/100) AS total_discount
+FROM sales s
+INNER JOIN product_details  pd
+	ON s.prod_id = pd.product_id
+GROUP BY pd.segment_id, pd.segment_name
+ORDER BY segment_id;
 -- 3. What is the top selling product for each segment?
+WITH top_selling_cte AS ( 
+  SELECT 
+    product.segment_id,
+    product.segment_name, 
+    product.product_id,
+    product.product_name,
+    SUM(sales.qty) AS total_quantity,
+    ROW_NUMBER() OVER (
+      PARTITION BY segment_id 
+      ORDER BY SUM(sales.qty) DESC) AS "ROW"
+  FROM sales
+  INNER JOIN product_details AS product
+    ON sales.prod_id = product.product_id
+  GROUP BY 
+    product.segment_id, product.segment_name, product.product_id, product.product_name
+)
+
+SELECT 
+  segment_id,
+  segment_name, 
+  product_id,
+  product_name,
+  total_quantity
+FROM top_selling_cte
+WHERE "ROW" = 1;
 -- 4. What is the total quantity, revenue and discount for each category?
+SELECT 
+  pd.category_id,
+  pd.category_name, 
+  SUM(s.qty) AS total_quantity,
+  SUM(s.qty * s.price) AS total_revenue,
+  SUM((s.qty * s.price) * s.discount/100) AS total_discount
+FROM sales s
+INNER JOIN product_details  pd
+	ON s.prod_id = pd.product_id
+GROUP BY pd.category_id, pd.category_name
+ORDER BY pd.category_id;
 -- 5. What is the top selling product for each category?
+WITH top_selling_cte AS ( 
+  SELECT 
+    pd.category_id,
+    pd.category_name, 
+    pd.product_id,
+    pd.product_name,
+    SUM(s.qty) AS total_quantity,
+    ROW_NUMBER() OVER (
+      PARTITION BY pd.category_id 
+      ORDER BY SUM(s.qty) DESC) AS "ROW"
+  FROM sales s
+  INNER JOIN product_details  pd
+    ON s.prod_id = pd.product_id
+  GROUP BY 
+    pd.category_id, pd.category_name, pd.product_id, pd.product_name
+)
+
+SELECT 
+  category_id,
+  category_name, 
+  product_id,
+  product_name,
+  total_quantity
+FROM top_selling_cte
+WHERE "ROW" = 1;
 -- 6. What is the percentage split of revenue by product for each segment?
+WITH ProductRevenue AS (
+  SELECT
+    pd.segment_id,
+    pd.product_id,
+    pd.product_name,
+    SUM(s.qty * s.price * (1 - s.discount / 100.0)) AS revenue
+  FROM product_details pd
+  JOIN sales s ON pd.product_id = s.prod_id
+  GROUP BY pd.segment_id, pd.product_id, pd.product_name
+),
+	SegmentTotalRevenue AS (
+	  SELECT
+		segment_id,
+		SUM(revenue) AS total_revenue
+	  FROM ProductRevenue
+	  GROUP BY segment_id
+	)
+SELECT
+  PR.segment_id,
+  PR.product_id,
+  PR.product_name,
+  PR.revenue,
+  (PR.revenue / SegmentTotalRevenue.total_revenue) * 100 AS revenue_percentage
+FROM ProductRevenue PR
+JOIN SegmentTotalRevenue  ON PR.segment_id = SegmentTotalRevenue.segment_id
+ORDER BY PR.segment_id,PR.revenue DESC;
+
 -- 7. What is the percentage split of revenue by segment for each category?
+WITH SegmentRevenue AS (
+  SELECT
+    pd.category_id,
+    pd.segment_id,
+    SUM(s.qty * s.price * (1 - s.discount / 100.0)) AS segment_revenue
+  FROM product_details pd
+  JOIN sales s ON pd.product_id = s.prod_id
+  GROUP BY pd.category_id, pd.segment_id
+),
+CategoryTotalRevenue AS (
+  SELECT
+    category_id,
+    SUM(segment_revenue) AS total_revenue
+  FROM SegmentRevenue
+  GROUP BY category_id
+)
+SELECT
+  CR.category_id,
+  CR.segment_id,
+  CR.segment_revenue,
+  (CR.segment_revenue / CT.total_revenue) * 100 AS revenue_percentage
+FROM SegmentRevenue CR
+JOIN CategoryTotalRevenue CT ON CR.category_id = CT.category_id
+ORDER BY CR.category_id, CR.segment_id;
+
 -- 8. What is the percentage split of total revenue by category?
+WITH CategoryRevenue AS (
+  SELECT
+    category_id,
+    SUM(s.qty * s.price * (1 - s.discount / 100.0)) AS category_revenue
+  FROM product_details pd
+  JOIN sales s ON pd.product_id = s.prod_id
+  GROUP BY category_id
+),
+TotalRevenue AS (
+  SELECT SUM(category_revenue) AS total_revenue
+  FROM CategoryRevenue
+)
+SELECT
+  category_id,
+  category_revenue,
+  (category_revenue / TR.total_revenue) * 100 AS revenue_percentage
+FROM CategoryRevenue CR
+CROSS JOIN TotalRevenue TR
+ORDER BY category_id;
+----test
+SELECT
+    category_id,
+    SUM(s.qty * s.price * (1 - s.discount / 100.0)) AS category_revenue
+  FROM product_details pd
+  JOIN sales s ON pd.product_id = s.prod_id
+  GROUP BY category_id
 -- 9. What is the total transaction “penetration” for each product? (hint: penetration = number of transactions where at least 1 quantity of a product was purchased divided by total number of transactions)
+WITH ProductTransactions AS (
+  SELECT
+    txn_id,
+    prod_id,
+    SUM(qty) AS total_quantity
+  FROM sales
+  GROUP BY txn_id, prod_id
+),
+TotalTransactions AS (
+  SELECT COUNT(DISTINCT txn_id) AS total_count
+  FROM sales
+)
+SELECT
+  pd.product_id,
+  SUM(CASE WHEN pt.total_quantity > 0 THEN 1 ELSE 0 END) AS penetrated_transactions,
+  TT.total_count AS total_transactions,
+  (SUM(CASE WHEN pt.total_quantity > 0 THEN 1 ELSE 0 END) * 100.0 / TT.total_count) AS penetration_percentage
+FROM product_details pd
+LEFT JOIN ProductTransactions pt ON pd.product_id = pt.prod_id
+CROSS JOIN TotalTransactions TT
+---- INNER JOIN TotalTransactions TT ON 1=1
+GROUP BY pd.product_id, TT.total_count
+ORDER BY pd.product_id;
+----test
+SELECT
+    txn_id,
+    prod_id,
+    SUM(qty) AS total_quantity
+  FROM sales
+  GROUP BY txn_id, prod_id
 -- 10. What is the most common combination of at least 1 quantity of any 3 products in a 1 single transaction?
