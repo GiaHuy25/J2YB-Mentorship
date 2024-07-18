@@ -17339,6 +17339,9 @@ SELECT DISTINCT week_number
 FROM #clean_weekly_sales
 WHERE week_date = '2020-06-15' 
   AND calendar_year = '2020';
+  ----test----
+  select * from  #clean_weekly_sales
+
 ----2----
 WITH packaging_sales AS (
   SELECT 
