@@ -15703,3 +15703,14 @@ INNER JOIN interest_metrics metrics
   ON map.id = metrics.interest_id
 WHERE metrics.interest_id = 21246   
   AND metrics._month IS NOT NULL;
+  ----7----
+  SELECT 
+  COUNT(*)
+FROM interest_map map
+INNER JOIN interest_metrics metrics
+  ON map.id = metrics.interest_id
+WHERE metrics.month_year < CAST(map.created_at AS DATETIME);
+SELECT *
+FROM interest_map map
+SELECT *
+FROM interest_metrics
