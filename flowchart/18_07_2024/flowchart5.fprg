@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Admini"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-19 01:42:25 PM"/>
+        <attribute name="created" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzExOjU3OjM1IEFNOzI5NDE="/>
+        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzExOjU4OjMxIEFNOzE7QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzExOjM3OjMxIEFNO2Zsb3djaGFydDQuZnByZzs3NTk4"/>
+        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzAxOjQyOjI1IFBNOzI7MzA1Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, temp, m, j, d" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="a" type="Integer" array="True" size="n"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <input variable="a[i]"/>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <assign variable="temp" expression="0"/>
+                <for variable="j" start="i+1" end="n-1" direction="inc" step="1">
+                    <if expression="a[i]&gt;a[j]">
+                        <then>
+                            <assign variable="temp" expression="a[i]"/>
+                            <assign variable="a[i]" expression="a[j]"/>
+                            <assign variable="a[j]" expression="temp"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <output expression="a[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
