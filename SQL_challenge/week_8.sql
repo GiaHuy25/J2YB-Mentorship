@@ -15853,3 +15853,70 @@ SELECT
 FROM interest_metrics
 GROUP BY interest_id, month_year
 ORDER BY interest_id, month_year;
+----D----
+----1----
+SELECT top 10
+    imt._month AS "Month",
+    CONVERT(VARCHAR(50),im.interest_name),
+    AVG(imt.composition) AS Avg_Composition
+FROM
+    interest_metrics imt
+JOIN
+    interest_map im ON imt.interest_id = im.id
+GROUP BY
+    imt._month,  CONVERT(VARCHAR(50),im.interest_name)
+ORDER BY
+    imt._month, Avg_Composition DESC;
+----FIX---
+ALTER TABLE interest_map
+ALTER COLUMN interest_name NVARCHAR(MAX);
+----2----
+WITH TopInterests AS (
+    SELECT TOP 10
+        im.interest_name,
+        AVG(imt.composition) AS Avg_Composition
+    FROM
+        interest_metrics imt
+    JOIN
+        interest_map im ON imt.interest_id = im.id
+    GROUP BY
+        im.interest_name
+    ORDER BY
+        Avg_Composition DESC
+)
+SELECT
+    ti.interest_name,
+    COUNT(*) AS Occurrences
+FROM
+    TopInterests ti
+JOIN
+    interest_metrics imt ON ti.interest_name = imt.interest_id
+GROUP BY
+    ti.interest_name
+ORDER BY
+    Occurrences DESC;
+----3----
+WITH TopInterests AS (
+    SELECT TOP 10
+        im.interest_name,
+        AVG(imt.composition) AS Avg_Composition
+    FROM
+        interest_metrics imt
+    JOIN
+        interest_map im ON imt.interest_id = im.id
+    GROUP BY
+        im.interest_name
+    ORDER BY
+        Avg_Composition DESC
+)
+SELECT
+    imt._month AS Month,
+    AVG(ti.Avg_Composition) AS Overall_Avg_Composition
+FROM
+    TopInterests ti
+JOIN
+    interest_metrics imt ON ti.interest_name = imt.interest_id
+GROUP BY
+    imt._month
+ORDER BY
+    imt._month;
