@@ -1,4 +1,4 @@
-USE master
+﻿USE master
 CREATE DATABASE Fresh_Segments
 GO
 USE Fresh_Segments
@@ -15704,13 +15704,152 @@ INNER JOIN interest_metrics metrics
 WHERE metrics.interest_id = 21246   
   AND metrics._month IS NOT NULL;
   ----7----
-  SELECT 
-  COUNT(*)
+SELECT COUNT(*)
 FROM interest_map map
 INNER JOIN interest_metrics metrics
-  ON map.id = metrics.interest_id
-WHERE metrics.month_year < CAST(map.created_at AS DATETIME);
+	ON map.id = metrics.interest_id
+WHERE TRY_CONVERT(datetime, '01-' + metrics.month_year, 105) < map.created_at;
+----test----
 SELECT *
 FROM interest_map map
 SELECT *
 FROM interest_metrics
+SELECT TRY_CONVERT(datetime, '2021-07-01');
+-- Kết quả: Ngày 2021-07-01 00:00:00.000
+SELECT TRY_CONVERT(date, '2021-07');
+-- Kết quả: Ngày 2021-07-01 00:00:00.000
+SELECT TRY_CONVERT(datetime, '01-' + '07-2021', 105);
+-- Kết quả: Ngày 2021-07-01 00:00:00.000
+----B----
+----1----
+WITH interest_cte AS (
+SELECT 
+  interest_id, 
+  COUNT(DISTINCT month_year) AS total_months
+FROM interest_metrics
+WHERE month_year IS NOT NULL
+GROUP BY interest_id
+)
+
+SELECT 
+  c.total_months,
+  COUNT(DISTINCT c.interest_id) as "count" 
+FROM interest_cte c
+WHERE total_months = 14
+GROUP BY c.total_months
+ORDER BY "count" DESC;
+----2----
+WITH cte_interest_months AS (
+SELECT
+  interest_id,
+  MAX(DISTINCT month_year) AS total_months
+FROM interest_metrics
+WHERE interest_id IS NOT NULL
+GROUP BY interest_id
+),
+cte_interest_counts AS (
+  SELECT
+    total_months,
+    COUNT(DISTINCT interest_id) AS interest_count
+  FROM cte_interest_months
+  GROUP BY total_months
+)
+
+SELECT
+  total_months,
+  interest_count,
+  ROUND(100 * SUM(interest_count) OVER (ORDER BY total_months DESC) 
+      (SUM(INTEREST_COUNT) OVER ()),2) AS cumulative_percentage
+FROM cte_interest_counts;
+----3----
+WITH cte_interest_months AS (
+SELECT
+  interest_id,
+  MAX(DISTINCT month_year) AS total_months
+FROM interest_metrics
+WHERE interest_id IS NOT NULL
+GROUP BY interest_id
+),
+cte_interest_counts AS (
+  SELECT
+    total_months,
+	interest_id,
+    COUNT(DISTINCT interest_id) AS interest_count
+  FROM cte_interest_months
+  GROUP BY total_months,interest_id
+),
+cte_removed_data AS (
+  SELECT COUNT(*) AS removed_count
+  FROM cte_interest_counts
+  WHERE interest_id < total_months
+)
+SELECT removed_count
+FROM cte_removed_data;
+----4----
+SELECT
+    DATEFROMPARTS(YEAR(TRY_CONVERT(datetime, '01-' + metrics.month_year, 105)), MONTH(TRY_CONVERT(datetime, '01-' + metrics.month_year, 105)), 1) AS month,
+    COUNT(DISTINCT interest_id) AS unique_interests
+FROM interest_metrics metrics
+GROUP BY DATEFROMPARTS(YEAR(TRY_CONVERT(datetime, '01-' + metrics.month_year, 105)), MONTH(TRY_CONVERT(datetime, '01-' + metrics.month_year, 105)), 1)
+ORDER BY month;
+
+----C---
+----1----
+----a----
+WITH RankedInterests AS (
+    SELECT
+        month_year,
+        interest_id,
+        MAX(composition) AS max_composition
+    FROM interest_metrics
+    GROUP BY month_year, interest_id
+)
+
+SELECT TOP 10
+    month_year,
+    interest_id,
+    max_composition
+FROM RankedInterests
+ORDER BY max_composition DESC
+----b----
+WITH RankedInterests AS (
+    SELECT
+        month_year,
+        interest_id,
+        MAX(composition) AS max_composition
+    FROM interest_metrics
+    GROUP BY month_year, interest_id
+)
+
+SELECT TOP 10
+    month_year,
+    interest_id,
+    max_composition
+FROM RankedInterests
+ORDER BY max_composition ASC;
+----2----
+SELECT TOP 5
+    interest_id,
+    AVG(ranking) AS avg_ranking
+FROM interest_metrics
+GROUP BY interest_id
+ORDER BY avg_ranking;
+----test---
+SELECT *
+FROM interest_metrics
+----3----
+SELECT TOP 5
+    interest_id,
+    STDEV(percentile_ranking) AS stdev_percentile_ranking
+FROM interest_metrics
+GROUP BY interest_id
+ORDER BY stdev_percentile_ranking DESC;
+----4----
+SELECT
+    interest_id,
+    month_year,
+    MIN(percentile_ranking) AS min_percentile_ranking,
+    MAX(percentile_ranking) AS max_percentile_ranking
+FROM interest_metrics
+GROUP BY interest_id, month_year
+ORDER BY interest_id, month_year;
