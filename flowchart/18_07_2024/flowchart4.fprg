@@ -4,10 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Admini"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-07-19 11:56:43 AM"/>
+        <attribute name="saved" value="2024-07-24 10:57:09 CH"/>
         <attribute name="created" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzExOjM3OjMxIEFNOzI5MzU="/>
         <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzExOjQwOjA5IEFNOzI7QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzA5OjUwOjIxIEFNO2Zsb3djaGFydDEuZnByZzs3NTkz"/>
-        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzExOjU2OjQzIEFNOzE7MzA0Nw=="/>
+        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTI0OzEwOjU3OjA5IENIOzI7MzA0Mw=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -19,7 +19,7 @@
             <for variable="i" start="0" end="n-1" direction="inc" step="1">
                 <assign variable="a[i]" expression="random(10)"/>
                 <assign variable="min" expression="a[0]"/>
-                <output expression="a[i]" newline="True"/>
+                <output expression="&quot;a[&quot; &amp;i&amp; &quot;]:&quot; &amp;a[i]" newline="True"/>
                 <if expression="a[i]&gt; max">
                     <then>
                         <assign variable="max" expression="a[i]"/>

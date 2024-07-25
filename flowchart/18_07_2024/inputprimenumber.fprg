@@ -4,42 +4,35 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Admini"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-07-24 10:57:16 CH"/>
+        <attribute name="saved" value="2024-07-23 09:32:38 CH"/>
         <attribute name="created" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzEwOjQ5OjE0IEFNOzI5Mzg="/>
         <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzEwOjUwOjExIEFNOzE7QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTE5OzA5OjUwOjIxIEFNO2Zsb3djaGFydDEuZnByZzs3NTg1"/>
-        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTI0OzEwOjU3OjE2IENIOzI7MzA0MQ=="/>
+        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTIzOzA5OjMyOjM4IENIOzI7MzA0NQ=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="n, i, sum, m, j" type="Integer" array="False" size=""/>
-            <assign variable="sum" expression="0"/>
-            <input variable="n"/>
-            <declare name="a" type="Integer" array="True" size="n"/>
-            <for variable="i" start="0" end="n-1" direction="inc" step="1">
-                <assign variable="a[i]" expression="random(10)"/>
-                <output expression="&quot;a[&quot; &amp;i&amp; &quot;]:&quot; &amp;a[i]" newline="True"/>
-            </for>
-            <for variable="i" start="0" end="n-1" direction="inc" step="1">
-                <if expression="a[i] &gt; 1">
+            <declare name="n, m, j" type="Integer" array="False" size=""/>
+            <do expression="n = 0">
+                <input variable="n"/>
+                <if expression="n &gt; 1">
                     <then>
-                        <assign variable="m" expression="a[i]"/>
+                        <assign variable="m" expression="n"/>
                         <declare name="b" type="Integer" array="True" size="m"/>
                         <for variable="j" start="2" end="m-1" direction="inc" step="1">
                             <assign variable="b[j]" expression="j"/>
-                            <if expression="a[i] % b[j] = 0">
+                            <if expression="n % b[j] = 0">
                                 <then>
-                                    <assign variable="a[i]" expression="0"/>
+                                    <assign variable="n" expression="0"/>
                                 </then>
                                 <else/>
                             </if>
                         </for>
-                        <assign variable="sum" expression="sum + a[i]"/>
                     </then>
                     <else/>
                 </if>
-            </for>
-            <output expression="&quot;sum in =&quot; &amp;sum" newline="True"/>
+            </do>
+            <output expression="&quot;N la :&quot; &amp;n" newline="True"/>
         </body>
     </function>
 </flowgorithm>

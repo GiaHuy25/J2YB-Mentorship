@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Admini"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-24 01:48:28 CH"/>
+        <attribute name="created" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTI0OzAxOjA1OjExIENIOzI5MjA="/>
+        <attribute name="edited" value="QWRtaW5pO0RFU0tUT1AtUFVERkI1QjsyMDI0LTA3LTI0OzAxOjQ4OjI4IENIOzM7MzA0NQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, maxappear, count, i, j, max" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <assign variable="max" expression="0"/>
+            <output expression="&quot;Find the element that appears the most times in the array&quot;" newline="True"/>
+            <output expression="&quot;input legnth of array&quot;" newline="True"/>
+            <input variable="n"/>
+            <declare name="a" type="Integer" array="True" size="n"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <assign variable="a[i]" expression="random(9)"/>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <for variable="j" start="i+1" end="n-1" direction="inc" step="1">
+                    <if expression="a[i]=a[j]">
+                        <then>
+                            <assign variable="count" expression="count+1"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <if expression="count &gt; max">
+                    <then>
+                        <assign variable="maxappear" expression="a[i]"/>
+                        <assign variable="max" expression="count"/>
+                    </then>
+                    <else/>
+                </if>
+                <output expression="&quot;a[&quot;&amp;i&amp;&quot;]:&quot;&amp;a[i]" newline="True"/>
+            </for>
+            <if expression="max = 0">
+                <then>
+                    <output expression="&quot;Each value of the array repeats once!!!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;maxappear: &quot;&amp;maxappear" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
