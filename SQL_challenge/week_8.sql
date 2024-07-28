@@ -15896,27 +15896,41 @@ GROUP BY
 ORDER BY
     Occurrences DESC;
 ----3----
-WITH TopInterests AS (
-    SELECT TOP 10
-        im.interest_name,
-        AVG(imt.composition) AS Avg_Composition
-    FROM
-        interest_metrics imt
-    JOIN
-        interest_map im ON imt.interest_id = im.id
-    GROUP BY
-        im.interest_name
-    ORDER BY
-        Avg_Composition DESC
+-- Step 1: Tìm Top 10 Interests mỗi tháng
+WITH RankedInterests AS (
+  SELECT
+    _month,
+    interest_id,
+    composition,
+    RANK() OVER (PARTITION BY _month ORDER BY composition DESC) AS interest_rank
+  FROM interest_metrics
 )
 SELECT
-    imt._month AS Month,
-    AVG(ti.Avg_Composition) AS Overall_Avg_Composition
-FROM
-    TopInterests ti
-JOIN
-    interest_metrics imt ON ti.interest_name = imt.interest_id
-GROUP BY
-    imt._month
-ORDER BY
-    imt._month;
+  _month,
+  interest_id,
+  composition
+INTO #Top10Interests
+FROM RankedInterests
+WHERE interest_rank <= 10;
+
+-- Step 2: tính trung bình Composition mỗi tháng
+SELECT
+  _month,
+  AVG(composition) AS avg_composition
+FROM #Top10Interests
+GROUP BY _month;
+
+-- Step 3: tính trung bình mọi tháng
+SELECT
+  AVG(avg_composition) AS overall_avg_composition
+FROM (
+  SELECT
+    _month,
+    AVG(composition) AS avg_composition
+  FROM #Top10Interests
+  GROUP BY _month
+) AS MonthlyAverages;
+
+-- xóa table
+DROP TABLE #Top10Interests;
+----4----
