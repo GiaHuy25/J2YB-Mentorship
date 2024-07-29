@@ -1,0 +1,15 @@
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\bin\Debug\net8.0\Roman_Number.exe
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\bin\Debug\net8.0\Roman_Number.deps.json
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\bin\Debug\net8.0\Roman_Number.runtimeconfig.json
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\bin\Debug\net8.0\Roman_Number.dll
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\bin\Debug\net8.0\Roman_Number.pdb
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.GeneratedMSBuildEditorConfig.editorconfig
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.AssemblyInfoInputs.cache
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.AssemblyInfo.cs
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.csproj.CoreCompileInputs.cache
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.sourcelink.json
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.dll
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\refint\Roman_Number.dll
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.pdb
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\Roman_Number.genruntimeconfig.cache
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Roman_Number\obj\Debug\net8.0\ref\Roman_Number.dll
