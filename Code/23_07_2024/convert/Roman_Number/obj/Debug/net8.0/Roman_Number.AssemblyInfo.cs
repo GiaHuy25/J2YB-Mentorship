@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Roman_Number")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5d5b60765905b74150c46de524096ab13521311")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be0629f6351776a643a4a900a678862410f9cede")]
 [assembly: System.Reflection.AssemblyProductAttribute("Roman_Number")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Roman_Number")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

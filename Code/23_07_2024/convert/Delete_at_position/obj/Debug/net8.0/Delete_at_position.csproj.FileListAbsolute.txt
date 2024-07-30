@@ -1,0 +1,15 @@
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.GeneratedMSBuildEditorConfig.editorconfig
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.AssemblyInfoInputs.cache
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.AssemblyInfo.cs
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.csproj.CoreCompileInputs.cache
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.sourcelink.json
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\bin\Debug\net8.0\Delete_at_position.exe
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\bin\Debug\net8.0\Delete_at_position.deps.json
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\bin\Debug\net8.0\Delete_at_position.runtimeconfig.json
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\bin\Debug\net8.0\Delete_at_position.dll
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\bin\Debug\net8.0\Delete_at_position.pdb
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.dll
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\refint\Delete_at_position.dll
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.pdb
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\Delete_at_position.genruntimeconfig.cache
+D:\githubfile\J2YB-Mentorship\Code\23_07_2024\convert\Delete_at_position\obj\Debug\net8.0\ref\Delete_at_position.dll

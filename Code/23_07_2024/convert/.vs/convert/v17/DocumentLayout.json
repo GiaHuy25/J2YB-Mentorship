@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EA97060F-8C11-45C9-9F0C-DABB9929E482}|Roman_Number\\Roman_Number.csproj|d:\\githubfile\\j2yb-mentorship\\code\\23_07_2024\\convert\\roman_number\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA97060F-8C11-45C9-9F0C-DABB9929E482}|Roman_Number\\Roman_Number.csproj|solutionrelative:roman_number\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E3308A0-50F3-42E6-A28F-A5E8CBC44958}|maxappear\\maxappear.csproj|d:\\githubfile\\j2yb-mentorship\\code\\23_07_2024\\convert\\maxappear\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E3308A0-50F3-42E6-A28F-A5E8CBC44958}|maxappear\\maxappear.csproj|solutionrelative:maxappear\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56768968-C718-4611-9546-1C500C3E1126}|add_at_position\\add_at_position.csproj|d:\\githubfile\\j2yb-mentorship\\code\\23_07_2024\\convert\\add_at_position\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56768968-C718-4611-9546-1C500C3E1126}|add_at_position\\add_at_position.csproj|solutionrelative:add_at_position\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD800303-7485-425C-BB37-10C41C857DE0}|Delete_at_position\\Delete_at_position.csproj|d:\\githubfile\\j2yb-mentorship\\code\\23_07_2024\\convert\\delete_at_position\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD800303-7485-425C-BB37-10C41C857DE0}|Delete_at_position\\Delete_at_position.csproj|solutionrelative:delete_at_position\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,26 +28,39 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\Roman_Number\\Program.cs",
-              "RelativeDocumentMoniker": "Roman_Number\\Program.cs",
-              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\Roman_Number\\Program.cs",
-              "RelativeToolTip": "Roman_Number\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAAXAAAA",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\maxappear\\Program.cs",
+              "RelativeDocumentMoniker": "maxappear\\Program.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\maxappear\\Program.cs",
+              "RelativeToolTip": "maxappear\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T00:12:10.739Z",
+              "WhenOpened": "2024-07-30T02:42:29.123Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\maxappear\\Program.cs",
-              "RelativeDocumentMoniker": "maxappear\\Program.cs",
-              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\maxappear\\Program.cs",
-              "RelativeToolTip": "maxappear\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAEAAAANAAAA",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\add_at_position\\Program.cs",
+              "RelativeDocumentMoniker": "add_at_position\\Program.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\add_at_position\\Program.cs",
+              "RelativeToolTip": "add_at_position\\Program.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAAACcAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T04:02:38.459Z",
+              "WhenOpened": "2024-07-30T02:00:30.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\Delete_at_position\\Program.cs",
+              "RelativeDocumentMoniker": "Delete_at_position\\Program.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\Delete_at_position\\Program.cs",
+              "RelativeToolTip": "Delete_at_position\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T01:32:36.043Z",
               "EditorCaption": ""
             }
           ]
