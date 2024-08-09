@@ -8,16 +8,21 @@ namespace CardGameLogic.Models
 {
     public class Deck
     {
-        public int Id { get; set; }
-        public int Number_of_cards { get; set; }
-        List<Card> cards { get; set; }
+        public List<Card> Cards { get; set; }
 
         public Deck()
         {
-            Id = 0;
-            Number_of_cards = 0;
-            cards = new List<Card>();
+            Cards = new List<Card>();
+            InitializeDeck();
         }
 
+        private void InitializeDeck()
+        {
+            foreach (Suit suit in Enum.GetValues(typeof(Suit))) {
+                foreach (Value value in Enum.GetValues(typeof(Value))) { 
+                    Cards.Add(new Card(suit, value));
+                }
+            }
+        }
     }
 }
