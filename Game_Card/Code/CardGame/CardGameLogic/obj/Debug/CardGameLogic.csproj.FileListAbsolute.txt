@@ -1,0 +1,6 @@
+D:\githubfile\J2YB-Mentorship\Game_Card\Code\CardGame\CardGameLogic\bin\Debug\CardGameLogic.dll
+D:\githubfile\J2YB-Mentorship\Game_Card\Code\CardGame\CardGameLogic\bin\Debug\CardGameLogic.pdb
+D:\githubfile\J2YB-Mentorship\Game_Card\Code\CardGame\CardGameLogic\obj\Debug\CardGameLogic.csproj.AssemblyReference.cache
+D:\githubfile\J2YB-Mentorship\Game_Card\Code\CardGame\CardGameLogic\obj\Debug\CardGameLogic.csproj.CoreCompileInputs.cache
+D:\githubfile\J2YB-Mentorship\Game_Card\Code\CardGame\CardGameLogic\obj\Debug\CardGameLogic.dll
+D:\githubfile\J2YB-Mentorship\Game_Card\Code\CardGame\CardGameLogic\obj\Debug\CardGameLogic.pdb
