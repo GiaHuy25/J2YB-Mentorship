@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FD4974E0-466E-4D53-8EC1-B0499A07449F}|CardGameMachine\\CardGameMachine.csproj|d:\\githubfile\\j2yb-mentorship\\game_card\\code\\cardgame\\cardgamemachine\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD4974E0-466E-4D53-8EC1-B0499A07449F}|CardGameMachine\\CardGameMachine.csproj|solutionrelative:cardgamemachine\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Services\\Bacarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|solutionrelative:CardGameLogic\\Services\\Bacarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F61CAE3E-549F-4E85-A8D8-D2B71F5042FC}|Test_Deck\\Test.csproj|d:\\githubfile\\j2yb-mentorship\\game_card\\code\\cardgame\\test_deck\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F61CAE3E-549F-4E85-A8D8-D2B71F5042FC}|Test_Deck\\Test.csproj|solutionrelative:test_deck\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|d:\\githubfile\\j2yb-mentorship\\game_card\\code\\cardgame\\cardgamelogic\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|solutionrelative:cardgamelogic\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\cardgamelogic\\services\\commonservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,10 +38,6 @@
       "RelativeMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|solutionrelative:CardGameLogic\\Models\\Card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Services\\Bacarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|solutionrelative:CardGameLogic\\Services\\Bacarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Models\\Deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}|CardGameLogic\\CardGameLogic.csproj|solutionrelative:CardGameLogic\\Models\\Deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,35 +53,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "packages.config",
-              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\packages.config",
-              "RelativeDocumentMoniker": "Test_Deck\\packages.config",
-              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\packages.config",
-              "RelativeToolTip": "Test_Deck\\packages.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-08-09T08:37:45.768Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\Properties\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "Test_Deck\\Properties\\AssemblyInfo.cs",
-              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\Properties\\AssemblyInfo.cs",
-              "RelativeToolTip": "Test_Deck\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameMachine\\Program.cs",
+              "RelativeDocumentMoniker": "CardGameMachine\\Program.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameMachine\\Program.cs",
+              "RelativeToolTip": "CardGameMachine\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T08:35:37.794Z"
+              "WhenOpened": "2024-08-13T12:20:13.233Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Card.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Models\\Card.cs",
               "RelativeDocumentMoniker": "CardGameLogic\\Models\\Card.cs",
@@ -85,31 +82,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CommonServices.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Services\\CommonServices.cs",
               "RelativeDocumentMoniker": "CardGameLogic\\Services\\CommonServices.cs",
               "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Services\\CommonServices.cs",
               "RelativeToolTip": "CardGameLogic\\Services\\CommonServices.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAgwDQAAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T06:23:06.715Z"
+              "WhenOpened": "2024-08-09T06:23:06.715Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Bacarat.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Services\\Bacarat.cs",
               "RelativeDocumentMoniker": "CardGameLogic\\Services\\Bacarat.cs",
               "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Services\\Bacarat.cs",
               "RelativeToolTip": "CardGameLogic\\Services\\Bacarat.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAUwDkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T06:07:02.082Z"
+              "WhenOpened": "2024-08-09T06:07:02.082Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Deck.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Models\\Deck.cs",
               "RelativeDocumentMoniker": "CardGameLogic\\Models\\Deck.cs",
@@ -121,20 +120,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\UnitTest1.cs",
               "RelativeDocumentMoniker": "Test_Deck\\UnitTest1.cs",
               "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\UnitTest1.cs",
               "RelativeToolTip": "Test_Deck\\UnitTest1.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAgwCkAAAAgAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAwwEMAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-09T02:30:46.465Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Models\\Player.cs",
+              "RelativeDocumentMoniker": "CardGameLogic\\Models\\Player.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Models\\Player.cs",
+              "RelativeToolTip": "CardGameLogic\\Models\\Player.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAawA4AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T11:35:15.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Test_Deck\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Test_Deck\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T08:35:37.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\packages.config",
+              "RelativeDocumentMoniker": "Test_Deck\\packages.config",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\Test_Deck\\packages.config",
+              "RelativeToolTip": "Test_Deck\\packages.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-09T08:37:45.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Code\\23_07_2024\\convert\\Delete_at_position\\Program.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Code\\23_07_2024\\convert\\Delete_at_position\\Program.cs",
@@ -146,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Game_Card\\Code\\CardGame\\CardGameLogic\\Class1.cs",
               "RelativeDocumentMoniker": "CardGameLogic\\Class1.cs",

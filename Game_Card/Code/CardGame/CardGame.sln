@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test_Deck\Test.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGameLogic", "CardGameLogic\CardGameLogic.csproj", "{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGameMachine", "CardGameMachine\CardGameMachine.csproj", "{FD4974E0-466E-4D53-8EC1-B0499A07449F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52FB4CAB-D8C8-4E45-8053-961BE9B7CDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD4974E0-466E-4D53-8EC1-B0499A07449F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4974E0-466E-4D53-8EC1-B0499A07449F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4974E0-466E-4D53-8EC1-B0499A07449F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4974E0-466E-4D53-8EC1-B0499A07449F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
