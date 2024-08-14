@@ -53,7 +53,7 @@ namespace Test_Deck
         {
             int numberOfPlayers = 3;
             var inputNames = new List<string> { "player1", "player2", "player3" };
-            var players = Bacarat.CreatePlayers(numberOfPlayers);
+            var players = Bacarat.CreatePlayers(inputNames);
 
             Assert.AreEqual(numberOfPlayers,players.Count);
             Assert.AreEqual(inputNames[0], players[0].Name);
