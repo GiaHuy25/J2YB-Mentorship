@@ -1,0 +1,15 @@
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.AssemblyInfoInputs.cache
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.AssemblyInfo.cs
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.csproj.CoreCompileInputs.cache
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.sourcelink.json
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\bin\Debug\net8.0\PermissionSystem.exe
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\bin\Debug\net8.0\PermissionSystem.deps.json
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\bin\Debug\net8.0\PermissionSystem.runtimeconfig.json
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\bin\Debug\net8.0\PermissionSystem.dll
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\bin\Debug\net8.0\PermissionSystem.pdb
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.dll
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\refint\PermissionSystem.dll
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.pdb
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\PermissionSystem.genruntimeconfig.cache
+D:\githubfile\J2YB-Mentorship\Digital_account_system\PermissionSystem\PermissionSystem\obj\Debug\net8.0\ref\PermissionSystem.dll

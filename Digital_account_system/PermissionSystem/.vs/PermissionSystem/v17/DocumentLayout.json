@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B8DD023A-3536-413D-8B22-D2C95ECDADBF}|PermissionSystem.Tests\\PermissionSystem.Tests.csproj|d:\\githubfile\\j2yb-mentorship\\digital_account_system\\permissionsystem\\permissionsystem.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8DD023A-3536-413D-8B22-D2C95ECDADBF}|PermissionSystem.Tests\\PermissionSystem.Tests.csproj|solutionrelative:permissionsystem.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8306206-C39E-487B-A1E0-C571F3A1C7F5}|PermissionSystem\\PermissionSystem.csproj|d:\\githubfile\\j2yb-mentorship\\digital_account_system\\permissionsystem\\permissionsystem\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8306206-C39E-487B-A1E0-C571F3A1C7F5}|PermissionSystem\\PermissionSystem.csproj|solutionrelative:permissionsystem\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8306206-C39E-487B-A1E0-C571F3A1C7F5}|PermissionSystem\\PermissionSystem.csproj|d:\\githubfile\\j2yb-mentorship\\digital_account_system\\permissionsystem\\permissionsystem\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8306206-C39E-487B-A1E0-C571F3A1C7F5}|PermissionSystem\\PermissionSystem.csproj|solutionrelative:permissionsystem\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8306206-C39E-487B-A1E0-C571F3A1C7F5}|PermissionSystem\\PermissionSystem.csproj|d:\\githubfile\\j2yb-mentorship\\digital_account_system\\permissionsystem\\permissionsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8306206-C39E-487B-A1E0-C571F3A1C7F5}|PermissionSystem\\PermissionSystem.csproj|solutionrelative:permissionsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8DD023A-3536-413D-8B22-D2C95ECDADBF}|PermissionSystem.Tests\\PermissionSystem.Tests.csproj|d:\\githubfile\\j2yb-mentorship\\digital_account_system\\permissionsystem\\permissionsystem.tests\\permissionsystem.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B8DD023A-3536-413D-8B22-D2C95ECDADBF}|PermissionSystem.Tests\\PermissionSystem.Tests.csproj|solutionrelative:permissionsystem.tests\\permissionsystem.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Service.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem\\Service.cs",
+              "RelativeDocumentMoniker": "PermissionSystem\\Service.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem\\Service.cs",
+              "RelativeToolTip": "PermissionSystem\\Service.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T04:40:11.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Model.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem\\Model.cs",
+              "RelativeDocumentMoniker": "PermissionSystem\\Model.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem\\Model.cs",
+              "RelativeToolTip": "PermissionSystem\\Model.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T04:38:55.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PermissionSystem.Tests",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem.Tests\\PermissionSystem.Tests.csproj",
+              "RelativeDocumentMoniker": "PermissionSystem.Tests\\PermissionSystem.Tests.csproj",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem.Tests\\PermissionSystem.Tests.csproj",
+              "RelativeToolTip": "PermissionSystem.Tests\\PermissionSystem.Tests.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-23T04:02:25.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "PermissionSystem.Tests\\UnitTest1.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "PermissionSystem.Tests\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T04:02:01.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem\\Program.cs",
+              "RelativeDocumentMoniker": "PermissionSystem\\Program.cs",
+              "ToolTip": "D:\\githubfile\\J2YB-Mentorship\\Digital_account_system\\PermissionSystem\\PermissionSystem\\Program.cs",
+              "RelativeToolTip": "PermissionSystem\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T03:59:09.358Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
